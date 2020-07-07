@@ -31,9 +31,12 @@ class CalculatorTest {
 
     @Test
     fun givenValidInput_whenAdd_shouldCallAddOperator(){
+        //given
         val a = 10
         val b = 20
+        //when
         SUT.addTwoNumbers(a,b)
+        //then
         /**
          * "verify" means that you want to check if a certain method of a mock object has been called or not.
          */

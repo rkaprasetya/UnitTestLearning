@@ -37,7 +37,7 @@ class GreeterTest {
         `when`(user.fullName()).thenReturn("Raka Prasetya")
         //when
         val result = SUT.getEnglishGreeter()
-        //assert
+        //then
         assertEquals("Hello Raka Prasetya",result)
     }
 }

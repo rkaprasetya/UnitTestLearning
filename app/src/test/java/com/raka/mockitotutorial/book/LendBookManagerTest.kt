@@ -34,7 +34,7 @@ class LendBookManagerTest {
         `when`(bookService.inStock(100)).thenReturn(true)
         //when
         SUT.checkout(100,1)
-        //assert
+        //then
         verify(bookService).lend(100,1)
     }
 
@@ -45,7 +45,7 @@ class LendBookManagerTest {
     fun givenInvalidData_whenChecout_throwException(){
         //given
         `when`(bookService.inStock(100)).thenReturn(false)
-        //when
+        //then
         SUT.checkout(100,1)
     }
 
