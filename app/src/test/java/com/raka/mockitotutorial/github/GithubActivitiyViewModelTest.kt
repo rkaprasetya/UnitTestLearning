@@ -22,6 +22,7 @@ import retrofit2.Response
 /**
  * https://www.codexpedia.com/android/unit-test-retrofit-2-rxjava-2-and-livedata-in-android/
  * unit test using RxJava
+ * Doesnt need "runblocking" from coroutine because the thread is created from schedulerrule class
  */
 @RunWith(MockitoJUnitRunner::class)
 class GithubActivitiyViewModelTest {
