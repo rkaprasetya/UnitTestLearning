@@ -14,19 +14,17 @@ class LoginViewModel(private val repository: LoginRepository):ViewModel() {
     var _toastMessage:MutableLiveData<String> = MutableLiveData()
     val compositeDisposable = CompositeDisposable()
     var onLoading = MutableLiveData<Boolean>().apply { value = false }
-    @VisibleForTesting
+
     fun onValidationCorrect2(username:String,password:String) {
         val disposable = repository.login2(username, password).subscribe({
             data.value = it
             onLoading.value = false
             nextActivity.value = true
-            _toastMessage.value = "5"
-            Log.e("response", "berhasil = $it")
+            _toastMessage.value = "Login berhasil"
         }, {
             onLoading.value = false
             nextActivity.value = true
-            _toastMessage.value = "8"
-            Log.e("response", "gagal = $it")
+            _toastMessage.value = "Login gagal"
         })
         compositeDisposable.add(compositeDisposable)
     }
