@@ -55,7 +55,7 @@ class ApiServiceTest {
             //arrange
             setResponseSuccess("response.json")
             //act
-            val resultResponse = service.login(EMAIL,PASSWORD).blockingGet()
+            val resultResponse = service.login(EMAIL,PASSWORD)!!.blockingGet()
             val request = mockWebSerVer.takeRequest()
             //assert
             assertNotNull(resultResponse)
@@ -68,7 +68,7 @@ class ApiServiceTest {
             //Arrange
             setResponseSuccess("response.json")
             //Act
-            val resultResponse = service.login(EMAIL,PASSWORD).blockingGet()
+            val resultResponse = service.login(EMAIL,PASSWORD)!!.blockingGet()
             val dataLoginResponse = resultResponse.dataLoginResponse
             //Response
             assertThat(EMAIL, `is`(dataLoginResponse!!.email))
@@ -80,7 +80,7 @@ class ApiServiceTest {
             //Arrange
             setResponseSuccess("response.json")
             //Act
-            val resultResponse = service.login(EMAIL,PASSWORD).blockingGet()
+            val resultResponse = service.login(EMAIL,PASSWORD)!!.blockingGet()
             val dataLoginResponse = resultResponse.dataLoginResponse
             //Response
             assertNotNull(dataLoginResponse?.accessToken)
@@ -92,7 +92,7 @@ class ApiServiceTest {
             //Arrange
             setResponseSuccess("repo_list_response.json")
             //Act
-            val resultResponse =  service.getRepoRx().blockingGet()
+            val resultResponse =  service.getRepoRx()!!.blockingGet()
             val request = mockWebSerVer.takeRequest()
             //Assert
             assertNotNull(resultResponse)
@@ -105,7 +105,7 @@ class ApiServiceTest {
             //Arrange
             setResponseSuccess("repo_list_response.json")
             //Act
-            val resultResponse = service.getRepoRx().blockingGet()
+            val resultResponse = service.getRepoRx()!!.blockingGet()
             val dataResponse = resultResponse.items
             //Response
             assertThat("d3", `is`(dataResponse[0].name))
@@ -118,7 +118,7 @@ class ApiServiceTest {
             //Arrange
             setResponseSuccess("repo_list_response.json")
             //Act
-            val resultResponse = service.getRepoRx().blockingGet()
+            val resultResponse = service.getRepoRx()!!.blockingGet()
             val dataResponse = resultResponse.items
             //Response
             assertThat(30, `is`(dataResponse.size))
